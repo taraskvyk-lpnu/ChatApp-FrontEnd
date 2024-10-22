@@ -1,0 +1,26 @@
+<mat-drawer-container class="container" autosize>
+
+  <mat-drawer #drawer mode="side" class="sidenav" opened>
+
+    <app-chat-nav-list (chatSelectedChatNavListComponent)="onChatSelected($event)"></app-chat-nav-list>
+    <div class="chat-form-container" [class.show-form]="showChatForm">
+      <app-chat-form
+        [chat]="selectedChat"
+        (chatUpdated)="onChatUpdated($event)"
+        (chatCreated)="onChatCreated($event)">
+      </app-chat-form>
+    </div>
+  </mat-drawer>
+
+  <div class="message-window">
+    <div class="sidenav-content">
+      <button type="button" mat-button (click)="toggleDrawer()">
+        <mat-icon>{{ showFiller ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+      </button>
+      <app-chat-header [isBlur]="isBlur" (editChatEnabled)="enableChatEditing($event)" (blurChanged)="toggleBlur($event)" [chat]="selectedChat"></app-chat-header>
+    </div>
+
+    <app-chat-window [ngClass]="{'blur': isBlur}" [selectedChatChatWindow]="selectedChat"> </app-chat-window>
+  </div>
+
+</mat-drawer-container>

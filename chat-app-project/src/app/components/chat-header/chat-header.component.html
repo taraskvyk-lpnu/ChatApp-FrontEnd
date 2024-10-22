@@ -1,0 +1,21 @@
+<div class="chat-header" *ngIf="chat">
+  <div class="chat-info">
+    <p class="chat-title">{{ chat.title }}</p>
+    <span class="participants-count">({{ chat.userIds.length }} members)</span>
+  </div>
+  <button class="settings-button" (click)="toggleChatOptions()">
+    <i class="material-icons">settings</i>
+  </button>
+</div>
+
+<div class="chat-options" *ngIf="showChatOptions">
+  <button mat-icon-button class="close-button" (click)="toggleChatOptions()">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+
+  <div class="action-buttons">
+    <button mat-raised-button color="accent" (click)="onLeaveChat()">Leave Chat</button>
+    <button mat-raised-button color="primary" [hidden]="chat?.creatorId != (user$ | async)?.id" (click)="toggleChatForm()">Edit Chat</button>
+    <button mat-raised-button color="warn" [hidden]="chat?.creatorId != (user$ | async)?.id" (click)="onDeleteChat()">Delete Chat</button>
+  </div>
+</div>

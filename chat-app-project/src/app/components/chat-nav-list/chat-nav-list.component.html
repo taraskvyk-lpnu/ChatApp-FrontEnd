@@ -1,0 +1,23 @@
+<div class="chat-list card-scrollable">
+  <app-chat-search>
+  </app-chat-search>
+
+  <mat-card
+    class="card-chat"
+    *ngFor="let chat of chats$ | async"
+    (click)="loadChat(chat)"
+    [ngClass]="{'chat-active': isActive(chat)}">
+    <mat-card-content class="chat-container">
+      <mat-icon class="chat-icon">chat</mat-icon>
+      <mat-label class="chat-title">{{ chat.title }}</mat-label>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="chat-form-container" [class.show-form]="showChatForm">
+    <app-chat-form (chatCreated)="onChatCreated($event)"></app-chat-form>
+  </div>
+
+  <button mat-fab color="primary" class="add-chat-button" (click)="toggleChatForm()">
+    <mat-icon>{{ showChatForm ? 'close' : 'add' }}</mat-icon>
+  </button>
+</div>

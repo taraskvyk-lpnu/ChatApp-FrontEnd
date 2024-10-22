@@ -1,0 +1,45 @@
+<mat-card class="auth-card">
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Login">
+        <form class="auth-form">
+          <mat-form-field appearance="fill" class="form-field">
+            <input matInput [(ngModel)]="loginRequest.email" name="email" placeholder="Enter your email" type="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <input matInput [(ngModel)]="loginRequest.password" name="password" placeholder="Enter your password" type="password">
+          </mat-form-field>
+
+          <mat-button-toggle (click)="login()" class="submit-button" type="submit">
+            Login
+          </mat-button-toggle>
+        </form>
+      </mat-tab>
+
+      <mat-tab (click)="showRegister()" label="Register">
+        <form class="registration-form">
+          <mat-form-field appearance="fill" class="form-field">
+            <input matInput [(ngModel)]="registerRequest.name" name="name" placeholder="Enter your name">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <input matInput [(ngModel)]="registerRequest.email" name="email" placeholder="Enter your email" type="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <input matInput [(ngModel)]="registerRequest.phoneNumber" name="phone" placeholder="Enter your phone number" type="tel">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <input matInput [(ngModel)]="registerRequest.password" name="password" placeholder="Enter your password" type="password">
+          </mat-form-field>
+
+          <mat-button-toggle (click)="register()" class="submit-button" type="submit">
+            Register
+          </mat-button-toggle>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

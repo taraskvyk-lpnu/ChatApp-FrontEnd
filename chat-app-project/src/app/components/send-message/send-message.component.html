@@ -1,0 +1,9 @@
+<mat-card-footer>
+  <form [formGroup]="chatForm" class="message-form">
+    <div class="chat-form-field">
+      <mat-icon matSuffix>emoji</mat-icon>
+      <input placeholder="Message" matInput formControlName="message" class="chat-input-field"/>
+      <button matSuffix mat-raised-button color="primary" class="transparent button-submit" type="submit" (click)="sendMessage()">Send</button>
+    </div>
+  </form>
+</mat-card-footer>

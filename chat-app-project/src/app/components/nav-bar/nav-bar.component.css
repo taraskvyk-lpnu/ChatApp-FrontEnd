@@ -1,0 +1,30 @@
+.toolbar {
+  background: rgb(49, 44, 81);
+}
+
+.toolbar-btn {
+  background-color: transparent;
+  color: #bfbfbf;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.toolbar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toolbar-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

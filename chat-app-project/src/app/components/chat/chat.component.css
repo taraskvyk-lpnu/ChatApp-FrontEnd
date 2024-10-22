@@ -1,0 +1,52 @@
+.container {
+  width: 100vw;
+  height: 91vh;
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  overflow: hidden;
+}
+
+.sidenav {
+  max-width: 30vw;
+  padding: 10px;
+  overflow: hidden;
+  background: linear-gradient(45deg, #45aaed, #d699ef);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2),
+  0px 0px 16px rgba(0, 0, 0, 0.2);
+}
+
+.message-window {
+  height: 90%;
+  padding: 10px;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 6%;
+  background-color: transparent;
+  margin: 10px;
+  width: 100%;
+}
+
+app-chat-header {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.blur {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+.chat-form-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #45aaed, #d699ef);
+  z-index: 5;
+  display: none;
+  width: 100%;
+}
+
+.chat-form-container.show-form {
+  display: block;
+}

@@ -1,0 +1,41 @@
+<form [formGroup]="chatForm" (ngSubmit)="onSubmit()" class="chat-form">
+  <h3 class="form-header">{{ isEditing ? 'Update Chat' : 'Create Chat' }}</h3>
+
+  <div class="field-group">
+    <input placeholder=" " matInput formControlName="title" class="input-field" id="chatName" autocomplete="off"/>
+    <label for="chatName" class="input-label">Chat Name</label>
+  </div>
+
+  <div class="field-group">
+    <textarea placeholder=" " matInput formControlName="description" class="input-field card-scrollable" id="description" autocomplete="off"></textarea>
+    <label for="description" class="input-label">Description</label>
+  </div>
+
+  <mat-form-field class="field-group">
+    <input
+      type="text"
+      placeholder="Search users"
+      matInput
+      [formControl]="userSearchControl"
+      [matAutocomplete]="auto"
+      (keydown.enter)="onSearchSubmit(userSearchControl.value); $event.preventDefault()">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectUser($event.option.value)">
+      <ng-container *ngFor="let user of filteredUsers$ | async">
+        <mat-option *ngIf="userId !== user.id" [value]="user">
+          {{ user.name }}
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div class="selected-users">
+    <ul class="custom-chip-list">
+      <li class="custom-chip" *ngFor="let user of selectedUsers">
+        {{ user.name }}
+        <span class="remove-icon" (click)="removeUser(user)">✖</span>
+      </li>
+    </ul>
+  </div>
+
+  <button mat-raised-button color="primary" class="button-submit" type="submit" [disabled]="!chatForm.valid">{{ isEditing ? 'Update Chat' : 'Create Chat' }}</button>
+</form>

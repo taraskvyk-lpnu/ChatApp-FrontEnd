@@ -1,0 +1,22 @@
+<mat-card class="chat-card">
+  <mat-card-content class="chat-content card-scrollable shadow-container">
+    <div class="message-list" #messageList>
+      <div *ngFor="let message of messages"
+           [ngClass]="{'user-message': message.senderId === (userId$ | async), 'other-message': message.senderId !== (userId$ | async)}"
+           class="message">
+        <div class="message-header">
+          <strong class="user-name">{{ message.userName }}</strong>
+        </div>
+        <app-message-actions
+          [message]="message"
+          [isCurrentUser]="message.senderId === (userId$ | async)"
+          (updateMessage)="onUpdateMessage($event)"
+          (deleteMessage)="onDeleteMessage($event)">
+        </app-message-actions>
+        <p class="message-time">{{ message.createdAt | date: 'HH:mm' }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <app-send-message class="send-message-container"></app-send-message>
+</mat-card>

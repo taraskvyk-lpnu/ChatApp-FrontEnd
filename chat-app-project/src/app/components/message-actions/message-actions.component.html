@@ -1,0 +1,23 @@
+<div class="message-actions">
+  <ng-container *ngIf="!isEditing; else editMode">
+    <p>{{ message.text }}</p>
+    <div class="action-buttons" *ngIf="isCurrentUser">
+      <button mat-icon-button (click)="startEditing()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #editMode>
+    <div class="field-group">
+      <textarea matInput [(ngModel)]="editedText" class="input-field card-scrollable" autocomplete="off"></textarea>
+    </div>
+    <div class="edit-buttons">
+      <button mat-button (click)="saveEdit()">Save</button>
+      <button mat-button (click)="cancelEditing()">Cancel</button>
+    </div>
+  </ng-template>
+</div>

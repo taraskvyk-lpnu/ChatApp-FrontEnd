@@ -1,0 +1,41 @@
+.chat-input-field, .chat-form-field, .message-form {
+  width: 100%;
+}
+
+.chat-form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-input-field::placeholder {
+  color: #bfbfbf;
+}
+
+.chat-input-field{
+  color: #bfbfbf;
+  font-size: 18px;
+  border: none;
+  padding: 10px;
+  margin: 0 10px;
+  width: 100%;
+  height: 30px;
+  background-color: rgb(72, 66, 109);
+  border-radius: 10px;
+}
+
+.button-submit {
+  background-color: rgb(72, 66, 109);
+  color: #bfbfbf;
+}
+
+mat-card-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  background: rgb(49, 44, 81);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2),
+  0px 0px 16px rgba(0, 0, 0, 0.2);
+}
+

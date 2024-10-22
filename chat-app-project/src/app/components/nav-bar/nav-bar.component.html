@@ -1,0 +1,10 @@
+<mat-toolbar class="toolbar">
+  <button class="toolbar-btn" [hidden]="isLoggedIn" routerLink="/auth">Authorize</button>
+  <button class="toolbar-btn" [hidden]="!isLoggedIn" routerLink="/chats">Chats</button>
+  <button class="toolbar-btn" [hidden]="!isLoggedIn" routerLink="/chats-nav-list">Nav List</button>
+
+  <span class="spacer"></span>
+
+  <button class="toolbar-btn" [hidden]="!isLoggedIn" routerLink="/users">All users</button>
+  <button class="toolbar-btn" [hidden]="!isLoggedIn" (click)="LogOut()">Logout</button>
+</mat-toolbar>
